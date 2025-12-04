@@ -134,6 +134,7 @@
   <ItemGroup>
     <None Include="..\..\source\repos\opengl-2d-bus\basic.frag" />
     <None Include="..\..\source\repos\opengl-2d-bus\basic.vert" />
+    <None Include=".gitignore" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

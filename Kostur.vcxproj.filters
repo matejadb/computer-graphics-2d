@@ -47,6 +47,7 @@
     <None Include="..\..\source\repos\opengl-2d-bus\basic.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\number_0.png">

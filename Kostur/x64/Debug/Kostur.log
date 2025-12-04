@@ -1,0 +1,3 @@
+﻿  Main.cpp
+C:\Users\Mateja\Desktop\Kostur\Source\Main.cpp(208,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Kostur.vcxproj -> C:\Users\Mateja\Desktop\Kostur\x64\Debug\Kostur.exe

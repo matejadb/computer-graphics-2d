@@ -78,8 +78,6 @@ Vec2 bezierQuadratic(Vec2 p0, Vec2 p1, Vec2 p2, float t) {
 }
 
 void initStations() {
-    // Creating a more natural, irregular path that resembles a city bus route
-    // Stations are positioned to create varied curves and straight sections
 
     stations[0].position = Vec2(-0.65f, 0.55f);   // Top-left area
     stations[1].position = Vec2(-0.25f, 0.65f);   // Top-center-left
@@ -105,7 +103,6 @@ void setupPathVAO() {
         Vec2 p0 = stations[i].position;
         Vec2 p2 = stations[nextIdx].position;
 
-        // Calculate direction and normal vectors
         Vec2 dir = Vec2(p2.x - p0.x, p2.y - p0.y);
         float dist = sqrt(dir.x * dir.x + dir.y * dir.y);
         Vec2 normal = Vec2(-dir.y, dir.x);
@@ -115,10 +112,9 @@ void setupPathVAO() {
             normal.y /= dist;
         }
 
-        // Variable curvature based on station position to create more natural turns
-        float curvature = 0.12f + 0.08f * sin(i * 0.7f); // Varies between 0.12 and 0.20
 
-        // Alternate curve direction for more interesting path
+        float curvature = 0.12f + 0.08f * sin(i * 0.7f);
+
         float curveDir = (i % 3 == 0) ? -1.0f : 1.0f;
 
         Vec2 midPoint = Vec2((p0.x + p2.x) / 2.0f, (p0.y + p2.y) / 2.0f);
@@ -369,10 +365,15 @@ int main()
             }
 
             if (keyKPressed && !isInspectorInBus) {
-                isInspectorInBus = true;
-                passengers++;
-                inspectorExitStation = (currentStation + 1) % NUM_STATIONS;
-                std::cout << ">>> KONTROLA USLA U AUTOBUS na stanici " << currentStation << " <<<" << std::endl;
+                if (passengers < 50) {
+                    isInspectorInBus = true;
+                    passengers++;
+                    inspectorExitStation = (currentStation + 1) % NUM_STATIONS;
+                    std::cout << ">>> KONTROLA USLA U AUTOBUS na stanici " << currentStation << " <<<" << std::endl;
+                }
+                else {
+                    std::cout << ">>> KONTROLA NE MOZE DA UDJE - AUTOBUS JE PUN (50 putnika) <<<" << std::endl;
+                }
             }
 
             if (stationTimer >= STATION_WAIT_TIME) {

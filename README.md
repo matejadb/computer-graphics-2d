@@ -6,7 +6,7 @@ A 2D graphical application for tracking a bus route with interactive passenger m
 
 This application simulates a bus traveling along a circular route with 10 stations. Users can interact with the bus system by adding/removing passengers and triggering random inspections.
 
-## 🎮 Controls
+## Controls
 
 | Action           | Control                             |
 | ---------------- | ----------------------------------- |
